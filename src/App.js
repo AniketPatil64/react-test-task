@@ -1,9 +1,14 @@
 import './App.css';
+import LogIn from './components/loginPage/LogIn';
+import ViewTable from './components/tablePage/ViewTable';
+import { useAuth } from './context/authcontext';
 
 function App() {
+  const {isLoggedIn} = useAuth();
   return (
     <div className="App">
-      Hello world
+        {!isLoggedIn ? <LogIn/> : <ViewTable/>}
+      
     </div>
   );
 }
